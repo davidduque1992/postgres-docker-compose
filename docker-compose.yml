@@ -9,8 +9,6 @@ services:
       - "5432:5432"
     volumes:
       - odoo-db-data:/var/lib/postgresql/data
-      - ./custom-config:/custom-config
-    entrypoint: ["/custom-config/init.sh"]
     networks:
       - localnetwork
 
