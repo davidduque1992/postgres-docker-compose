@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+      - ./custom-config:/custom-config
+    entrypoint: ["/custom-config/init.sh"]
+    networks:
+      - localnetwork
+
+volumes:
+  odoo-db-data:
+
+networks:
+  localnetwork:
+    external: true
