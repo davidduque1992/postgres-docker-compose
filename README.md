@@ -1,2 +1,3 @@
 # postgres-docker-compose
-docker compose para levantar docker 
+
+docker compose para levantar postgres:16
